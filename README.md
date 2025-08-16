@@ -34,4 +34,4 @@ Evaluate student SQL submissions with the assistance of a Generative Large Langu
   - `pandas` for data manipulation
   - `pdfplumber` for PDF parsing (if you are using the PDF database schema descriptions)
   - `openai` Python package for interacting with OpenAI's API
-  - 'scikit-learn' for classification metrics and confusion matrices 
+  - `scikit-learn` for classification metrics and confusion matrices 
