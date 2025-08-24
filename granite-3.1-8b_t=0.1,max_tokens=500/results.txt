@@ -1,0 +1,78 @@
+Overall report:
+                   precision    recall  f1-score   support
+
+         cheating       1.00      0.08      0.14        13
+          correct       0.61      0.46      0.52        98
+ noninterpretable       0.65      0.45      0.53        97
+partially correct       0.43      0.71      0.54        98
+
+         accuracy                           0.52       306
+        macro avg       0.67      0.43      0.43       306
+     weighted avg       0.58      0.52      0.51       306
+
+Report for difficulty 1:
+['correct' 'noninterpretable' 'partially correct']
+['partially correct' 'correct' 'noninterpretable']
+                   precision    recall  f1-score   support
+
+          correct       0.86      0.75      0.80        16
+ noninterpretable       1.00      0.71      0.83         7
+partially correct       0.55      0.86      0.67         7
+
+         accuracy                           0.77        30
+        macro avg       0.80      0.77      0.77        30
+     weighted avg       0.82      0.77      0.78        30
+
+Report for difficulty 2:
+['cheating' 'correct' 'noninterpretable' 'partially correct']
+['noninterpretable' 'partially correct' 'correct']
+                   precision    recall  f1-score   support
+
+         cheating       0.00      0.00      0.00         4
+          correct       1.00      0.18      0.31        22
+ noninterpretable       0.52      0.58      0.55        19
+partially correct       0.53      0.85      0.65        33
+
+         accuracy                           0.55        78
+        macro avg       0.51      0.40      0.38        78
+     weighted avg       0.63      0.55      0.50        78
+
+Report for difficulty 3:
+['cheating' 'correct' 'noninterpretable' 'partially correct']
+['partially correct' 'noninterpretable' 'cheating' 'correct']
+                   precision    recall  f1-score   support
+
+         cheating       1.00      0.11      0.20         9
+          correct       0.61      0.83      0.70        24
+ noninterpretable       0.67      0.50      0.57        20
+partially correct       0.33      0.45      0.38        11
+
+         accuracy                           0.56        64
+        macro avg       0.65      0.47      0.46        64
+     weighted avg       0.63      0.56      0.54        64
+
+Report for difficulty 4:
+['correct' 'noninterpretable' 'partially correct']
+['partially correct' 'correct' 'noninterpretable']
+                   precision    recall  f1-score   support
+
+          correct       0.40      0.12      0.19        16
+ noninterpretable       0.50      0.30      0.38        20
+partially correct       0.44      0.71      0.54        31
+
+         accuracy                           0.45        67
+        macro avg       0.45      0.38      0.37        67
+     weighted avg       0.45      0.45      0.41        67
+
+Report for difficulty 5:
+['correct' 'noninterpretable' 'partially correct']
+['partially correct' 'correct' 'noninterpretable']
+                   precision    recall  f1-score   support
+
+          correct       0.39      0.35      0.37        20
+ noninterpretable       0.80      0.39      0.52        31
+partially correct       0.26      0.56      0.36        16
+
+         accuracy                           0.42        67
+        macro avg       0.48      0.43      0.42        67
+     weighted avg       0.55      0.42      0.44        67

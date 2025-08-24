@@ -1,0 +1,116 @@
+Question: Assume persons who were born in the same year are the same age and there is only one youngest person (with no ties/draws) in this database, who is/are the second youngest person(s) in the database? List the id(s) of the person(s).
+        Student's answer: DELETE FROM person p1
+WHERE year_born=(SELECT MAX(year_born) FROM person p1）
+SELECT id
+FROM person p2
+WHERE year_born=(SELECT MAX(year_of_born)FROM person p2);
+
+True Category:  cheating
+
+Response:  ```json
+{
+  "category": "noninterpretable",
+  "feedback": {
+    "summary": "The SQL statement is non-executable due to syntax errors and logical issues.",
+    "detailed_explanation": "The student's answer contains a DELETE statement followed by a SELECT statement, which is not valid SQL syntax. Additionally, the subquery in the DELETE statement is incorrectly written and does not match the intended logic for finding the second youngest person. The SELECT statement also has a syntax error in the subquery.",
+    "specific_errors": [
+      {
+        "description": "The DELETE statement is not appropriate for this question as it attempts to modify the database, which is not required.",
+        "suggestion": "Remove the DELETE statement and focus on writing a SELECT query to find the second youngest person."
+      },
+      {
+        "description": "The subquery in the DELETE statement is incorrectly written and does not match the intended logic for finding the second youngest person.",
+        "suggestion": "Rewrite the subquery to correctly find the maximum year of birth that is not the maximum year of birth in the database."
+      },
+      {
+        "description": "The SELECT statement has a syntax error in the subquery.",
+        "suggestion": "Correct the syntax error in the subquery to properly find the second youngest person."
+      }
+    ],
+    "improvement_suggestions": "Focus on writing a SELECT query that correctly finds the second youngest person by using subqueries to exclude the youngest person and then finding the next youngest. Ensure that your query is syntactically correct and logically sound."
+  }
+}
+```
+
+
+Question: Who is the youngest person in the database? List the id, ﬁrst name, and last name of this person.
+        Student's answer: select id,first_name,last_name
+from person
+where year_born in (
+select max(year_born)
+from person);
+
+True Category:  correct
+
+Response:  ```json
+{
+  "category": "partially correct",
+  "feedback": {
+    "summary": "The query is partially correct as it attempts to find the youngest person in the database, but it does not list their id, first name, and last name correctly.",
+    "detailed_explanation": "The query is close to being correct, but it only selects the maximum year_born from the person table. However, it does not correctly filter to get the id, first name, and last name of the person with that year_born. The correct approach should be to use a subquery to find the maximum year_born and then select the corresponding id, first name, and last name from the person table.",
+    "specific_errors": [
+      {
+        "description": "The query only selects the maximum year_born from the person table.",
+        "suggestion": "Change the subquery to select the maximum year_born and then use this value to filter the person table for id, first name, and last name."
+      }
+    ],
+    "improvement_suggestions": "To improve your SQL skills, focus on understanding how to use subqueries to filter and retrieve specific data from tables. Practice writing queries that involve multiple stages of filtering and selection."
+  }
+}
+```
+
+Question: A person has worked on a movie if this person is a director, a writer, or both a director and writer of this movie. Who has/have worked on the largest number of distinct movies in this database? List the id(s) of the person(s).
+        Student's answer: SELECT FROM person p;
+
+    True Category:  noninterpretable
+
+    Response:  ```json
+{
+  "category": "noninterpretable",
+  "feedback": {
+    "summary": "The SQL statement is non-executable due to syntax errors and missing logic.",
+    "detailed_explanation": "The provided SQL statement is incomplete and contains syntax errors. It does not include any columns to select, conditions to filter the data, or logic to determine who has worked on the largest number of distinct movies.",
+    "specific_errors": [
+      {
+        "description": "The SELECT statement is missing the column names to select.",
+        "suggestion": "Specify the columns you want to retrieve, such as the person's id."
+      },
+      {
+        "description": "The query does not include any conditions or joins to determine who has worked on movies.",
+        "suggestion": "Use JOIN operations to connect the person table with the director and writer tables, and use GROUP BY and COUNT functions to find the number of distinct movies each person has worked on."
+      },
+      {
+        "description": "The query does not include any logic to find the person(s) with the largest number of distinct movies.",
+        "suggestion": "Use subqueries or window functions to rank the results and find the person(s) with the highest count of distinct movies."
+      }
+    ],
+    "improvement_suggestions": "To answer this question, you need to join the person table with both the director and writer tables to identify all movies each person has worked on. Then, group the results by person id and count the distinct movie titles. Finally, rank these counts to find the person(s) with the highest number of distinct movies worked on."
+  }
+}
+```
+
+Question: How many writers were born in 1935?
+        Student's answer: SELECT count(*)
+FROM person p
+WHERE year_born == 1935;
+
+
+True Category:  noninterpretable
+
+Response:  ```json
+{
+  "category": "partially correct",
+  "feedback": {
+    "summary": "The query is partially correct as it counts the number of people born in 1935, but it does not specifically filter for writers.",
+    "detailed_explanation": "The query correctly counts the number of people born in 1935, but it does not specifically filter for writers. The correct query should join the 'person' table with the 'writer' table to ensure that only writers are counted.",
+    "specific_errors": [
+      {
+        "description": "The query does not filter for writers. It only counts people born in 1935.",
+        "suggestion": "Join the 'person' table with the 'writer' table to ensure that only writers are counted."
+      }
+    ],
+    "improvement_suggestions": "To improve, ensure that your query specifically filters for writers by joining the 'person' table with the 'writer' table. This will ensure that only writers born in 1935 are counted."
+  }
+}
+```
+
